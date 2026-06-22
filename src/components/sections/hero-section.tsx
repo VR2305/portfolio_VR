@@ -82,7 +82,7 @@ export const HeroSection = () => {
     <section 
       id="hero" 
       ref={containerRef}
-      className="relative h-screen w-full flex items-center px-8 md:px-16 lg:px-24 xl:px-32"
+      className="relative h-screen w-full flex items-center px-6 md:px-16 lg:px-24 xl:px-32"
     >
       {/* Google Font for serif accent */}
       <link 
@@ -221,7 +221,7 @@ export const HeroSection = () => {
 
         {/* Headline — Restored dominant scale and cinematic presence */}
         <h1
-          className="hero-headline relative z-10 font-sans font-bold text-white/90 mb-8"
+          className="hero-headline relative z-10 font-sans font-bold text-white/90 mb-8 text-balance"
           style={{ 
             fontSize: 'clamp(2rem, 3.4vw, 3.4rem)', 
             lineHeight: 1.12, 
@@ -238,16 +238,16 @@ export const HeroSection = () => {
         </p>
 
         {/* CTAs — Minimal, visually unified, natural endpoint */}
-        <div className="hero-cta relative z-10 flex items-center gap-4">
+        <div className="hero-cta relative z-10 flex flex-col md:flex-row items-stretch md:items-center justify-start gap-4 w-full md:w-auto">
           <a
             href="#projects"
-            className="group inline-flex items-center justify-center px-8 py-3.5 bg-white hover:bg-white/90 text-black text-[12px] font-bold tracking-[0.05em] rounded-full transition-all duration-300 shadow-[0_4px_14px_rgba(255,255,255,0.1)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.15)] hover:scale-105"
+            className="group w-full md:w-auto inline-flex items-center justify-center px-8 py-4 md:py-3.5 bg-white hover:bg-white/90 text-black text-[14px] md:text-[12px] font-bold tracking-[0.05em] rounded-full transition-all duration-300 shadow-[0_4px_14px_rgba(255,255,255,0.1)] hover:shadow-[0_6px_20px_rgba(255,255,255,0.15)] hover:scale-[1.02] md:hover:scale-105"
           >
             Explore Work
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center px-8 py-3.5 bg-transparent border border-white/10 hover:border-white/20 text-white/70 text-[12px] font-medium tracking-[0.05em] rounded-full hover:bg-white/5 hover:text-cyan-400 hover:scale-105 transition-all duration-300"
+            className="w-full md:w-auto inline-flex items-center justify-center px-8 py-4 md:py-3.5 bg-transparent border border-white/10 hover:border-white/20 text-white/70 text-[14px] md:text-[12px] font-medium tracking-[0.05em] rounded-full hover:bg-white/5 hover:text-cyan-400 hover:scale-[1.02] md:hover:scale-105 transition-all duration-300"
           >
             Let&apos;s Connect
           </a>

@@ -103,13 +103,13 @@ export const AboutSection = () => {
     <section
       id="about"
       ref={containerRef}
-      className="relative min-h-screen w-full overflow-hidden px-8 py-20 md:px-16 lg:px-24 xl:px-32"
+      className="relative min-h-0 md:min-h-screen w-full overflow-hidden px-6 py-12 md:py-20 md:px-16 lg:px-24 xl:px-32"
     >
       <div className="relative z-10 flex min-h-[calc(100vh-10rem)] items-center">
         <div className="hidden lg:block lg:w-[45%] xl:w-[48%]" aria-hidden="true" />
 
         <div className="w-full lg:ml-auto lg:w-[55%] xl:w-[52%] lg:pl-10 xl:pl-16">
-          <div className="about-reveal mb-10">
+          <div className="about-reveal mb-10 flex justify-center lg:justify-start">
             <div className="flex items-baseline gap-3">
               <h2
                 className="font-sans font-bold leading-none text-white flex items-baseline gap-3"
@@ -140,6 +140,19 @@ export const AboutSection = () => {
                   
                   {/* Drawing connecting lines directly bound to each box */}
                   
+                  {/* Mobile Vertical Connection Line (Only visible below lg) */}
+                  {index < stories.length - 1 && (
+                    <>
+                      <div className="absolute -bottom-1 left-1/2 w-2 h-2 rounded-full bg-white/20 -translate-x-1/2 z-10 lg:hidden" />
+                      <div className="absolute -bottom-[48px] left-1/2 h-[48px] w-[1px] border-l border-dashed border-white/20 lg:hidden -translate-x-1/2" />
+                      <div className="absolute -bottom-[32px] left-1/2 -translate-x-1/2 z-10 text-white/40 lg:hidden bg-[#030303] rounded-full">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
+                    </>
+                  )}
+
                   {/* From Top-Left to Top-Right (Horizontal right) */}
                   {index === 0 && (
                     <>

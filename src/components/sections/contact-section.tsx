@@ -39,7 +39,7 @@ export const ContactSection = () => {
     <section 
       id="contact" 
       ref={containerRef}
-      className="relative min-h-screen w-full grid place-items-center px-8 bg-[#030303] z-20 overflow-hidden"
+      className="relative min-h-[100dvh] w-full grid place-items-center px-8 bg-[#030303] z-20 overflow-hidden"
     >
       {/* Geometric Scatter Pattern */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -59,8 +59,24 @@ export const ContactSection = () => {
         </h2>
 
         <div className="flex justify-center mt-16 w-full">
-          {/* The Expanding Pill */}
-          <div className="contact-pill group relative inline-flex items-center justify-center h-20 rounded-full border border-white/10 hover:border-cyan-500/50 bg-[#0a0a0a] transition-all duration-500 overflow-hidden px-10 hover:px-6 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]">
+          {/* Mobile View: Just Social Icons */}
+          <div className="flex md:hidden items-center justify-center gap-4 w-full">
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
+              <FaLinkedinIn size={24} />
+            </a>
+            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
+              <FaWhatsapp size={26} />
+            </a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
+              <FaInstagram size={26} />
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vickyravi4231@gmail.com" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
+              <FaEnvelope size={24} />
+            </a>
+          </div>
+
+          {/* Desktop View: The Expanding Pill */}
+          <div className="hidden md:inline-flex contact-pill group relative items-center justify-center h-20 rounded-full border border-white/10 hover:border-cyan-500/50 bg-[#0a0a0a] transition-all duration-500 overflow-hidden px-10 hover:px-6 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]">
             
             {/* Pill Text */}
             <span className="text-white text-2xl font-medium tracking-tight whitespace-nowrap transition-all duration-500 group-hover:text-cyan-400 group-hover:pr-6 group-hover:border-r group-hover:border-white/10">
@@ -69,13 +85,13 @@ export const ContactSection = () => {
             
             {/* Hidden Social Icons (Revealed on hover) */}
             <div className="flex items-center gap-4 max-w-0 opacity-0 group-hover:max-w-[400px] group-hover:opacity-100 transition-all duration-500 ease-out overflow-hidden ml-0 group-hover:ml-6 h-full">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
                 <FaLinkedinIn size={20} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
                 <FaWhatsapp size={22} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
                 <FaInstagram size={22} />
               </a>
               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vickyravi4231@gmail.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">

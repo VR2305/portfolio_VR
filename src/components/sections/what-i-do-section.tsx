@@ -41,14 +41,16 @@ export const WhatIDoSection = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // Pin matching the about section pattern
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: 'top top',
-        end: '+=30%',
-        pin: true,
-        pinSpacing: true,
-      });
+      // Pin matching the about section pattern (Desktop only)
+      if (window.innerWidth >= 768) {
+        ScrollTrigger.create({
+          trigger: containerRef.current,
+          start: 'top top',
+          end: '+=30%',
+          pin: true,
+          pinSpacing: true,
+        });
+      }
 
 
       // Staggered entrance — same timing system as hero
@@ -81,8 +83,7 @@ export const WhatIDoSection = () => {
     <section
       id="what-i-do"
       ref={containerRef}
-      className="relative min-h-[100dvh] w-full flex items-center py-20 overflow-hidden"
-      style={{ paddingTop: 0, paddingBottom: 0 }}
+      className="relative min-h-0 md:min-h-[100dvh] w-full flex items-center py-16 md:py-20 overflow-hidden"
     >
       {/* Cursive font for "work" */}
       <link
@@ -125,7 +126,7 @@ export const WhatIDoSection = () => {
       </div>
 
       {/* ── LEFT SIDE — floating text composition ──────────────────────────── */}
-      <div ref={leftRef} className="lg:pl-40 md:pl-24 pl-12 z-10">
+      <div ref={leftRef} className="lg:pl-40 md:pl-24 px-6 z-10 flex flex-col items-center md:items-start text-center md:text-left w-full">
         {/* ── Main headline ──────────────────────────────────────────────── */}
         <div className="hiw-headline mb-10">
           <h2
@@ -158,7 +159,7 @@ export const WhatIDoSection = () => {
         </p>
 
         {/* ── Body copy + closing — unified text column ──────────────────── */}
-        <div className="hiw-copy flex flex-col mb-10" style={{ gap: '0.5rem' }}>
+        <div className="hiw-copy flex flex-col mb-10 items-center md:items-start" style={{ gap: '0.5rem' }}>
           <p className="font-sans text-white/90 leading-[1.7] text-[1rem]">
             From problem to interface to build.
           </p>
@@ -180,7 +181,7 @@ export const WhatIDoSection = () => {
 
 
         {/* ── Tools section ──────────────────────────────────────────────── */}
-        <div>
+        <div className="w-full flex flex-col items-center md:items-start">
           <div className="mb-10">
             <span className="relative inline-block font-mono text-[13px] tracking-[0.2em] uppercase text-cyan-400 font-bold">
               TOOLS I USE
@@ -210,15 +211,22 @@ export const WhatIDoSection = () => {
             </span>
           </div>
 
-          {/* Row 1 — Design */}
-          <div className="hiw-tools-row flex flex-wrap gap-6 mb-6">
+          {/* Mobile View — Unified Balanced Grid */}
+          <div className="hiw-tools-row grid grid-cols-6 gap-y-4 gap-x-2 md:hidden mb-8 w-full place-items-center">
+            {TOOLS.map((tool) => (
+              <ToolIcon key={tool.name} tool={tool} />
+            ))}
+          </div>
+
+          {/* Desktop Row 1 — Design */}
+          <div className="hiw-tools-row hidden md:flex flex-wrap justify-start gap-6 mb-6 w-full">
             {TOOLS.slice(0, 9).map((tool) => (
               <ToolIcon key={tool.name} tool={tool} />
             ))}
           </div>
 
-          {/* Row 2 — Dev + AI */}
-          <div className="hiw-tools-row flex flex-wrap gap-6">
+          {/* Desktop Row 2 — Dev + AI */}
+          <div className="hiw-tools-row hidden md:flex flex-wrap justify-start gap-6 w-full">
             {TOOLS.slice(9).map((tool) => (
               <ToolIcon key={tool.name} tool={tool} />
             ))}

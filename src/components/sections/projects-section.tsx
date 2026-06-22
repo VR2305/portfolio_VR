@@ -133,6 +133,33 @@ const projectDetails: Record<string, ProjectDetail> = {
             }
           );
         }
+
+        // 3D Depth Stack Effect for Mobile Cards
+        const isMobile = window.innerWidth < 640;
+        if (isMobile && columns.length > 0) {
+          const cards = Array.from(columns);
+          cards.forEach((card, i) => {
+            if (i === cards.length - 1) return; // Last card stays fully scaled
+            
+            const targetDiv = card.querySelector('.gsap-3d-target');
+            if (!targetDiv) return;
+            
+            const remainingCards = cards.length - 1 - i;
+            
+            gsap.to(targetDiv, {
+              scale: 1 - (0.05 * remainingCards), // shrinks 5% for each card that stacks on top
+              opacity: 1 - (0.3 * remainingCards), // fades slightly as it gets buried
+              ease: "none",
+              transformOrigin: "top center",
+              scrollTrigger: {
+                trigger: card,
+                start: `top ${160 + i * 15}px`, // starts exactly when the card sticks
+                end: `+=${450 * remainingCards}`, // scrubs dynamically over the remaining cards
+                scrub: true,
+              }
+            });
+          });
+        }
       }
     }, containerRef);
     return () => ctx.revert();
@@ -142,7 +169,7 @@ const projectDetails: Record<string, ProjectDetail> = {
     <section 
       id="projects" 
       ref={containerRef}
-      className={`relative min-h-screen w-full flex flex-col justify-center px-8 md:px-16 lg:px-24 py-16 md:py-20 bg-black overflow-hidden ${activeProject ? 'z-[999]' : 'z-10'}`} style={{ gap: SPACING.lg }}
+      className={`relative min-h-0 md:min-h-screen w-full flex flex-col justify-center px-6 md:px-16 lg:px-24 py-12 md:py-20 bg-black overflow-clip ${activeProject ? 'z-[999]' : 'z-10'}`} style={{ gap: SPACING.lg }}
     >
 
 
@@ -169,50 +196,64 @@ const projectDetails: Record<string, ProjectDetail> = {
       />
 
       <div className="max-w-[1500px] w-full mx-auto relative z-10">
-        {/* Section Header */}
-        <div ref={titleRef} className="flex flex-col items-center mb-12 md:mb-16">
-          <h2
-            className="font-sans font-bold leading-none text-white flex flex-wrap justify-center items-baseline gap-3"
-            style={{
-              fontSize: 'clamp(2rem, 3.4vw, 3.35rem)',
-              letterSpacing: '-0.025em',
-            }}
-          >
-            My{' '}
-            <span className="relative inline-block whitespace-pre text-white font-serif italic font-normal" style={{ fontFamily: "'Lora', serif", letterSpacing: 'normal' }}>
-              <span className="absolute inset-0 top-[30%] -bottom-[10%] -left-2 -right-2 -z-10 -rotate-1 opacity-40 bg-cyan-400" style={{ filter: 'url(#brush-stroke)' }} />
-              <span className="relative z-10">Work</span>
-            </span>
-          </h2>
+        {/* Section Header Wrapper - Constrains the sticky effect */}
+        <div className="absolute top-0 bottom-[450px] md:bottom-0 left-0 right-0 pointer-events-none z-50">
+          <div ref={titleRef} className="flex flex-col items-center mb-12 md:mb-16 sticky top-[80px] pt-4 pb-4 bg-[#000000cc] backdrop-blur-xl sm:static sm:bg-transparent sm:backdrop-blur-none sm:pt-0 sm:pb-0 w-[120%] -ml-[10%] sm:w-full sm:ml-0 shadow-[0_10px_30px_rgba(0,0,0,0.5)] sm:shadow-none pointer-events-auto">
+            <h2
+              className="font-sans font-bold leading-none text-white flex flex-wrap justify-center items-baseline gap-3"
+              style={{
+                fontSize: 'clamp(2rem, 3.4vw, 3.35rem)',
+                letterSpacing: '-0.025em',
+              }}
+            >
+              My{' '}
+              <span className="relative inline-block whitespace-pre text-white font-serif italic font-normal" style={{ fontFamily: "'Lora', serif", letterSpacing: 'normal' }}>
+                <span className="absolute inset-0 top-[30%] -bottom-[10%] -left-2 -right-2 -z-10 -rotate-1 opacity-40 bg-cyan-400" style={{ filter: 'url(#brush-stroke)' }} />
+                <span className="relative z-10">Works</span>
+              </span>
+            </h2>
+          </div>
         </div>
+        
+        {/* Spacer for absolute header */}
+        <div className="h-[100px] mb-12 md:mb-16 w-full" aria-hidden="true" />
 
-        {/* 3-Column Work Grid */}
+        {/* 3-Column Work Grid (Flex on mobile for sticky stacking) */}
         <div 
           ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 relative z-20 items-stretch auto-rows-fr"
+          className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 relative z-20 items-stretch sm:auto-rows-fr"
           style={{ gap: SPACING.lg }}
         >
-          {Object.keys(projectDetails).map((id) => {
+          {Object.keys(projectDetails).map((id, index) => {
               const data = projectDetails[id];
               if (!data) return null;
               return (
-                <div key={id} className="h-[450px]">
-                  <ProjectCard 
-                    id={id}
-                    category={data.category}
-                    title={data.title}
-                    description={data.caseStudy}
-                    tags={data.tags}
-                    themeColor={data.themeColor}
-                    categoryColor={data.categoryColor}
-                    iconType={data.iconType}
-                    image={data.image}
-                    onSelect={setActiveProject}
-                    prefersReduced={prefersReduced}
-                  />
+                <div 
+                  key={id}
+                  className="h-[450px] sticky sm:static"
+                  style={{ top: `calc(160px + ${index * 15}px)`, zIndex: index + 1 }}
+                >
+                  <div className="w-full h-full gsap-3d-target">
+                    <ProjectCard 
+                      id={id}
+                      category={data.category}
+                      title={data.title}
+                      description={data.caseStudy}
+                      tags={data.tags}
+                      themeColor={data.themeColor}
+                      categoryColor={data.categoryColor}
+                      iconType={data.iconType}
+                      image={data.image}
+                      onSelect={setActiveProject}
+                      prefersReduced={prefersReduced}
+                    />
+                  </div>
                 </div>
               );
           })}
+          
+          {/* Spacer element to allow the final card to stick and remain on screen */}
+          <div className="h-[20vh] sm:hidden shrink-0" aria-hidden="true" />
         </div>
 
 
