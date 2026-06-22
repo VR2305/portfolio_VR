@@ -61,16 +61,16 @@ export const ContactSection = () => {
         <div className="flex justify-center mt-16 w-full">
           {/* Mobile View: Just Social Icons */}
           <div className="flex md:hidden items-center justify-center gap-4 w-full">
-            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
+            <a href="https://www.linkedin.com/in/vignesh-raj-r-85aa13259/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
               <FaLinkedinIn size={24} />
             </a>
-            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
+            <a href="https://wa.me/919940105128" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
               <FaWhatsapp size={26} />
             </a>
-            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
+            <a href="https://www.instagram.com/craftedbyvr/" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
               <FaInstagram size={26} />
             </a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vickyravi4231@gmail.com" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
+            <a href="mailto:vickyravi4231@gmail.com" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/70 bg-[#0a0a0a] hover:text-white hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-300">
               <FaEnvelope size={24} />
             </a>
           </div>
@@ -85,16 +85,16 @@ export const ContactSection = () => {
             
             {/* Hidden Social Icons (Revealed on hover) */}
             <div className="flex items-center gap-4 max-w-0 opacity-0 group-hover:max-w-[400px] group-hover:opacity-100 transition-all duration-500 ease-out overflow-hidden ml-0 group-hover:ml-6 h-full">
-              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+              <a href="https://www.linkedin.com/in/vignesh-raj-r-85aa13259/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
                 <FaLinkedinIn size={20} />
               </a>
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+              <a href="https://wa.me/919940105128" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
                 <FaWhatsapp size={22} />
               </a>
-              <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+              <a href="https://www.instagram.com/craftedbyvr/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
                 <FaInstagram size={22} />
               </a>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vickyravi4231@gmail.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+              <a href="mailto:vickyravi4231@gmail.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex-shrink-0 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
                 <FaEnvelope size={20} />
               </a>
             </div>

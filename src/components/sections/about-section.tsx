@@ -135,7 +135,7 @@ export const AboutSection = () => {
               {stories.map((story, index) => (
                 <article
                   key={story.step}
-                  className={`about-reveal group relative border border-white/5 bg-[#030303] px-6 py-6 md:px-8 md:py-8 transition-colors duration-300 hover:border-white/10 hover:bg-[#080808] ${flowPositions[index]} flex flex-col justify-start rounded-2xl`}
+                  className={`about-reveal group relative border border-white/5 bg-[#030303] px-5 py-5 transition-colors duration-300 hover:border-white/10 hover:bg-[#080808] ${flowPositions[index]} flex flex-col justify-start rounded-2xl`}
                 >
                   
                   {/* Drawing connecting lines directly bound to each box */}
@@ -200,7 +200,7 @@ export const AboutSection = () => {
 
                   {/* Step Label */}
                   <div 
-                    className="mb-3 font-sans text-[18px] md:text-[20px] font-black uppercase tracking-wide"
+                    className="mb-2 font-sans text-[16px] md:text-[18px] font-black uppercase tracking-wide"
                     style={{ color: story.color === 'cyan' ? '#06b6d4' : '#a855f7' }}
                   >
                     {story.step}
@@ -208,7 +208,7 @@ export const AboutSection = () => {
 
                   {/* Text Paragraphs */}
                   <div
-                    className="font-sans font-medium leading-[1.7] text-[15px] md:text-[16px] text-white/80"
+                    className="font-sans font-normal leading-[1.6] text-[15px] md:text-[16px] text-white/80"
                     style={{ fontFamily: FONT_FAMILY.primary }}
                   >
                     {story.paragraphs.map((p, pIndex) => (

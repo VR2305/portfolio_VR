@@ -100,11 +100,24 @@ export const useCanvasSequence = (canvasRef: React.RefObject<HTMLCanvasElement |
              },
              onComplete: resolve
            });
+
+           // Fallback in case GSAP is paused (e.g., opened in a background tab)
+           setTimeout(() => {
+             setLoadProgress(1);
+             resolve();
+           }, 1200);
         });
 
-        await Promise.all([loadPromise, visualPromise]);
+        // Strict fallback: Never hang the loading screen for more than 3 seconds total
+        const timeoutPromise = new Promise<void>(resolve => setTimeout(resolve, 3000));
+
+        await Promise.race([
+          Promise.all([loadPromise, visualPromise]),
+          timeoutPromise
+        ]);
         
-        await new Promise(resolve => setTimeout(resolve, 200));
+        setLoadProgress(1);
+        await new Promise(resolve => setTimeout(resolve, 150));
         setIsLoading(false);
         render();
 
