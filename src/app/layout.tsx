@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vignesh Raj R — Cinematic Portfolio",
+  title: "Vignesh Raj R | UX Engineer",
   description: "Interactive cinematic experience of a UX Engineer",
 };
 
