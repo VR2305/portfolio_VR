@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Head from "next/head";
 import { GSAPWrapper } from '@/components/providers/gsap-wrapper';
+import { MobileDesktopToast } from '@/components/ui/mobile-desktop-toast';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className="bg-black text-white" suppressHydrationWarning>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <GSAPWrapper>
+          <MobileDesktopToast />
           {children}
         </GSAPWrapper>
       </body>

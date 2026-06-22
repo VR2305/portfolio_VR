@@ -209,6 +209,15 @@ export const HeroSection = () => {
         ref={leftContentRef}
         className="w-full max-w-[540px] z-10 flex flex-col relative ml-0 md:ml-12 lg:ml-20 xl:ml-28 mt-8 md:mt-12"
       >
+        {/* Mobile-only Intro */}
+        <div className="hero-eyebrow relative z-10 flex items-center mb-4 lg:hidden">
+          <div className="flex items-center opacity-90">
+            <span className="text-[#a1a1aa] text-[12px] md:text-[14px] uppercase tracking-[0.25em] font-bold font-sans">
+              Hi I'm Vignesh Raj
+            </span>
+          </div>
+        </div>
+
         {/* Introduction — visually connected but architecturally distinct, stronger hierarchy */}
         <div className="hero-eyebrow relative z-10 flex items-center mb-2">
           <span 
