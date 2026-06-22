@@ -1,0 +1,142 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Reference-based Typography */
+  --text-hero: clamp(4rem, 8vw, 12rem);
+  --text-editorial: clamp(2rem, 5vw, 6rem);
+  
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+}
+
+@layer base {
+  section {
+    /* padding managed per-section to avoid overriding hero and other full-screen sections */
+  }
+  * {
+    @apply outline-none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+    background-color: #000000;
+  }
+}
+
+/* Focus-visible outline for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary, #22d3ee);
+  outline-offset: 2px;
+}
+
+/* Skip link – visually hidden but appears on focus */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus-visible {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: var(--primary, #22d3ee);
+  color: #000;
+  z-index: 1000;
+  border-radius: 0.25rem;
+}
+
+
+@layer utilities {
+  .text-glow-none {
+    text-shadow: none;
+  }
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #00ffff;
+  --radius: 0.5rem;
+  --cursor-default: url('/cursors/navigation-arrow-fill-svgrepo-com-24.png') 1 1, auto;
+  /* --cursor-pointer removed – using arrow for all */
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+@layer base {
+  html {
+    @apply font-sans;
+  }
+}
+
+/* Lenis recommended styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: 'Dexotick';
+  src: url('/fonts/Dexotick.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rockybilly';
+  src: url('/fonts/Rockybilly.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body,
+body * {
+  cursor: var(--cursor-default) !important;
+}
+
+a,
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+summary,
+.cursor-pointer {
+  cursor: var(--cursor-pointer) !important;
+}
+  
+ 
