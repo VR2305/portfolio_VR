@@ -83,7 +83,7 @@ export const WhatIDoSection = () => {
     <section
       id="what-i-do"
       ref={containerRef}
-      className="relative min-h-0 md:min-h-[100dvh] w-full flex items-center py-16 md:py-20 overflow-hidden"
+      className="relative min-h-0 md:min-h-[100dvh] w-full flex items-center pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden"
     >
       {/* Cursive font for "work" */}
       <link
