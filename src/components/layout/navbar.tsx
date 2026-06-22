@@ -22,7 +22,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-[100] px-6 py-6 md:px-12 md:py-12 lg:px-24 pointer-events-none">
+      <nav className="fixed top-0 left-0 w-full z-[110] px-6 py-6 md:px-12 md:py-12 lg:px-24 pointer-events-none">
         <div className="max-w-screen-2xl mx-auto flex items-center justify-between pointer-events-auto">
           {/* Left side: Logo */}
           <Link 
